@@ -16,8 +16,8 @@ export default function CommonTable({columns, rows, className}) {
                     <TableHead sx={{backgroundColor: '#FFEB3B'}}>
                         <TableRow>
                             {
-                                columns.map((column) => {
-                                    return <TableCell>{column.name}</TableCell>
+                                columns.map((column, index) => {
+                                    return <TableCell key={index}>{column.name}</TableCell>
                                 })
                             }
                         </TableRow>
@@ -29,8 +29,8 @@ export default function CommonTable({columns, rows, className}) {
                                 sx={{'&:last-child td, &:last-child th': {border: 0}}}
                             >
                                 {
-                                    Object.keys(row).map((key) => {
-                                        return <TableCell component="th">{row[key]}</TableCell>
+                                    Object.keys(row).map((key, index) => {
+                                        return <TableCell key={index}>{row[key]}</TableCell>
                                     })
                                 }
                             </TableRow>
