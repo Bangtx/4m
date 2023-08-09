@@ -8,17 +8,18 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 
-export default function CommonTable({rows, className}) {
+export default function CommonTable({columns, rows, className}) {
     return (
         <Box p={2}>
-            <TableContainer component={Paper} className={className} sx={{maxWidth: 1000}}>
+            <TableContainer component={Paper} className={className} sx={{maxWidth: 1200}}>
                 <Table aria-label="simple table" size="medium">
                     <TableHead sx={{backgroundColor: '#FFEB3B'}}>
                         <TableRow>
-                            <TableCell>Dessert (100g serving)</TableCell>
-                            <TableCell align="right">Calories</TableCell>
-                            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                            {
+                                columns.map((column) => {
+                                    return <TableCell>{column.name}</TableCell>
+                                })
+                            }
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -27,10 +28,11 @@ export default function CommonTable({rows, className}) {
                                 key={row.name}
                                 sx={{'&:last-child td, &:last-child th': {border: 0}}}
                             >
-                                <TableCell component="th" scope="row">{index}</TableCell>
-                                <TableCell align="right">{row.id}</TableCell>
-                                <TableCell align="right">{row.code}</TableCell>
-                                <TableCell align="right">{row.name}</TableCell>
+                                {
+                                    Object.keys(row).map((key) => {
+                                        return <TableCell component="th">{row[key]}</TableCell>
+                                    })
+                                }
                             </TableRow>
                         ))}
                     </TableBody>
