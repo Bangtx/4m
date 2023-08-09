@@ -22,7 +22,6 @@ export default function Home() {
         <main className={styles.main}>
             <HeaderBar/>
             <SearchAndAdd openAddDialog={() => setShowCompanyDialog(true)}/>
-            <Button onClick={() => setShowCompanyDialog(true)}>test</Button>
             <CommonTable columns={columns} rows={companies} className={'center mt-4'}/>
             <CompanyDialog show={showCompanyDialog} onClose={() => setShowCompanyDialog(false)}/>
         </main>
