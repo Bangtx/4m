@@ -1,4 +1,4 @@
-package com.example.demo;
+package m.com.vn.api;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
