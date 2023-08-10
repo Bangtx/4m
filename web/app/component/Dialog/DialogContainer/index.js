@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography'
 import Toolbar from '@mui/material/Toolbar'
 import Grid from '@mui/material/Grid'
 import CloseIcon from '@mui/icons-material/Close';
-import {Box} from "@mui/material";
+import {Box, IconButton} from "@mui/material";
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -18,7 +18,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 
-const DialogContainer = ({show, onClose, title}) => {
+const DialogContainer = ({show, onClose, title, children, onSave}) => {
     return (
         <div>
             <Dialog
@@ -31,27 +31,23 @@ const DialogContainer = ({show, onClose, title}) => {
             >
                 <DialogTitle id="alert-dialog-title" sx={{backgroundColor: '#309D26', color: 'white'}}>
                     <Grid container>
-                        <Grid item xs={11.5}>
+                        <Grid item xs={10.5}>
                             <Typography sx={{fontSize: 20}}>{title ? title : 'Dialog'}</Typography>
                         </Grid>
-                        <Grid item xs={0.5}>
-                            <CloseIcon onClick={onClose}/>
+                        <Grid item xs={1.5}>
+                            <IconButton sx={{color: 'white'}} onClick={onClose}>
+                                <CloseIcon/>
+                            </IconButton>
                         </Grid>
                     </Grid>
-                    {/*<Typography sx={{fontSize: 20}}>{title ? title : 'Dialog'}</Typography>*/}
-                    {/*<CloseIcon/>*/}
 
                 </DialogTitle>
-                <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                        Let Google help apps determine location. This means sending anonymous
-                        location data to Google, even when no apps are running.
-                    </DialogContentText>
+                <DialogContent style={{minWidth: 350}}>
+                    {children ? children : null}
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={onClose}>Disagree</Button>
-                    <Button onClick={onClose} autoFocus>
-                        Agree
+                    <Button onClick={onSave} fullWidth variant={"contained"} style={{backgroundColor: '#309D26'}}>
+                        Save
                     </Button>
                 </DialogActions>
             </Dialog>
