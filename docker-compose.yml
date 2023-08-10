@@ -21,6 +21,9 @@ services:
       - './api:/app/api'
     ports:
       - 1001:8080
+      - 1003:35729
+    depends_on:
+      - db
 #    command: ['java', '-jar',  'build/libs/demo2-0.0.1-SNAPSHOT.jar']
     command: ['./gradlew', 'bootRun']
 
