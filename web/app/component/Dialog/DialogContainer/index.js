@@ -26,10 +26,8 @@ const DialogContainer = ({show, onClose, title, children, onSave}) => {
                 onClose={onClose}
                 keepMounted
                 TransitionComponent={Transition}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
             >
-                <DialogTitle id="alert-dialog-title" sx={{backgroundColor: '#309D26', color: 'white'}}>
+                <DialogTitle sx={{backgroundColor: '#309D26', color: 'white'}}>
                     <Grid container>
                         <Grid item xs={10.5}>
                             <Typography sx={{fontSize: 20}}>{title ? title : 'Dialog'}</Typography>

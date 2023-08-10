@@ -1,0 +1,51 @@
+services:
+  web:
+    container_name: 4m_web
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+#    env_file: .env
+    volumes:
+      - './web:/app/web'
+      - './web/node_modules:/app/web/node_modules'
+    ports:
+      - '1000:1000'
+    command: [ "npm", "run", "dev", "--", "--port", "1000" ]
+
+  api:
+    container_name: 4m_api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    volumes:
+      - './api:/app/api'
+    ports:
+      - 1001:8080
+#    command: ['java', '-jar',  'build/libs/demo2-0.0.1-SNAPSHOT.jar']
+    command: ['./gradlew', 'bootRun']
+
+  db:
+    container_name: 4m_db
+    image: postgres:11
+    ports:
+      - "1002:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=default
+    volumes:
+      - db:/var/lib/postgresql/data
+
+    #  redis:
+    #    container_name: ${PROJECT_NAME}_redis
+    #    image: redis:alpine
+    #    ports:
+    #      - "6379:6379"
+    #    volumes:
+    #      - redis:/data
+
+volumes:
+  db:
+    driver: local
+#  redis:
+#    driver: local
