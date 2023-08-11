@@ -1,18 +1,16 @@
-package m.com.vn.api.models;
+package m.com.vn.api.dto.company;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
-public class Company extends Base {
+public abstract class CompanyRequest {
+    @NotNull
+    @NotBlank
     private String code;
+    @NotNull
+    @NotBlank
     private String name;
     private String address;
     private String search_str;
-
-    public Company() {}
 
     public String getCode() {
         return code;
@@ -46,7 +44,7 @@ public class Company extends Base {
         this.search_str = search_str;
     }
 
-    public Company(String code, String name, String address, String search_str) {
+    public CompanyRequest(String code, String name, String address, String search_str) {
         this.code = code;
         this.name = name;
         this.address = address;
