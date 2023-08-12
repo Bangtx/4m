@@ -1,8 +1,9 @@
 package m.com.vn.api.models;
-
 import jakarta.persistence.Entity;
+import org.hibernate.annotations.Where;
 
 @Entity
+@Where(clause = "active = true")
 public class Company extends Base {
     private String code;
     private String name;

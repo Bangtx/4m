@@ -1,6 +1,5 @@
 package m.com.vn.api.models;
 import jakarta.persistence.*;
-
 import java.sql.Timestamp;
 
 @MappedSuperclass
