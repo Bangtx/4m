@@ -1,17 +1,13 @@
 package m.com.vn.api.models;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
 @Entity
 public class Company extends Base {
     private String code;
     private String name;
     private String address;
-    private String search_str;
-
+    private String searchStr;
     public Company() {}
 
     public String getCode() {
@@ -38,18 +34,18 @@ public class Company extends Base {
         this.address = address;
     }
 
-    public String getSearch_str() {
-        return search_str;
+    public String getSearchStr() {
+        return searchStr;
     }
 
-    public void setSearch_str(String search_str) {
-        this.search_str = search_str;
+    public void setSearchStr(String search_str) {
+        this.searchStr = search_str;
     }
 
     public Company(String code, String name, String address, String search_str) {
         this.code = code;
         this.name = name;
         this.address = address;
-        this.search_str = search_str;
+        this.searchStr = search_str;
     }
 }

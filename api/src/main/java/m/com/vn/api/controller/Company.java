@@ -1,6 +1,8 @@
 package m.com.vn.api.controller;
+import jakarta.persistence.PersistenceContext;
 import jakarta.validation.Valid;
 import m.com.vn.api.dto.company.CompanyCreate;
+import m.com.vn.api.dto.company.CompanyUpdate;
 import m.com.vn.api.repository.CompanyRepository;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +38,7 @@ public class Company {
 //    }
 
     @PutMapping("/{id}")
-    public m.com.vn.api.models.Company editCompany(@PathVariable Long id, @Valid @RequestBody CompanyCreate company) {
+    public m.com.vn.api.models.Company editCompany(@PathVariable Long id, @Valid @RequestBody CompanyUpdate company) {
         System.out.println(company.toString());
         Optional<m.com.vn.api.models.Company> cpn = companyRepository.findById(id);
         cpn.get().setCode(company.getCode());

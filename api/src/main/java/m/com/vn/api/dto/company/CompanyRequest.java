@@ -10,7 +10,7 @@ public abstract class CompanyRequest {
     @NotBlank
     private String name;
     private String address;
-    private String search_str;
+    private String searchStr;
 
     public String getCode() {
         return code;
@@ -36,18 +36,18 @@ public abstract class CompanyRequest {
         this.address = address;
     }
 
-    public String getSearch_str() {
-        return search_str;
+    public String getSearchStr() {
+        return searchStr;
     }
 
-    public void setSearch_str(String search_str) {
-        this.search_str = search_str;
+    public void setSearchStr(String search_str) {
+        this.searchStr = search_str;
     }
 
-    public CompanyRequest(String code, String name, String address, String search_str) {
+    public CompanyRequest(String code, String name, String address, String searchStr) {
         this.code = code;
         this.name = name;
         this.address = address;
-        this.search_str = search_str;
+        this.searchStr = searchStr;
     }
 }
