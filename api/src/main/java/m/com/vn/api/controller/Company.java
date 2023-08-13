@@ -1,11 +1,11 @@
 package m.com.vn.api.controller;
 import jakarta.validation.Valid;
+import m.com.vn.api.dto.company.CompanyCreate;
 import m.com.vn.api.dto.company.CompanyUpdate;
 import m.com.vn.api.services.company.CompanyService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/company")
@@ -19,11 +19,10 @@ public class Company {
         return companyService.getList(searchStr);
     }
 
-//    @PostMapping("/")
-//    public m.com.vn.api.models.Company saveCompany(@RequestBody m.com.vn.api.models.Company company) {
-//        System.out.println(company.toString());
-//        return companyRepository.save(company);
-//    }
+    @PostMapping("/")
+    public m.com.vn.api.models.Company saveCompany(@RequestBody CompanyCreate company) {
+        return companyService.create(company);
+    }
 
 //    @PutMapping("/{id}")
 //    public m.com.vn.api.models.Company editCompany(@PathVariable Long id, @RequestBody m.com.vn.api.models.Company company) {

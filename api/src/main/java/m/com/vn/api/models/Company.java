@@ -1,5 +1,6 @@
 package m.com.vn.api.models;
 import jakarta.persistence.Entity;
+import m.com.vn.api.dto.company.CompanyCreate;
 import org.hibernate.annotations.Where;
 
 @Entity
