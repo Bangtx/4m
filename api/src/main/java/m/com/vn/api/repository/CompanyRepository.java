@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CompanyRepository extends JpaRepository<Company, Long> {
+public interface CompanyRepository extends Base<Company, Long> {
     public List<Company> findByCode(String code);
 
     @Query("SELECT c FROM Company c WHERE c.searchStr ILIKE %:searchStr%")

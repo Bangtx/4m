@@ -38,4 +38,9 @@ public class Company {
     public m.com.vn.api.models.Company editCompany(@PathVariable Long id, @Valid @RequestBody CompanyUpdate company) {
         return companyService.update(id, company);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteCompany(@PathVariable Long id) {
+        companyService.sortDelete(id);
+    }
 }

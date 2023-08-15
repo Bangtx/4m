@@ -1,10 +1,12 @@
 package m.com.vn.api.models;
 import jakarta.persistence.Entity;
+import lombok.*;
 import m.com.vn.api.dto.company.CompanyCreate;
 import org.hibernate.annotations.Where;
 
 @Entity
 @Where(clause = "active = true")
+@Data
 public class Company extends Base {
     private String code;
     private String name;

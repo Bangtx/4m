@@ -1,5 +1,6 @@
 package m.com.vn.api.services.company;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import m.com.vn.api.dto.company.CompanyCreate;
 import m.com.vn.api.dto.company.CompanyUpdate;
 import m.com.vn.api.mappers.CompanyMapper;
@@ -50,5 +51,10 @@ public class CompanyService extends Base {
             return companyRepository.findBySearchStr(searchStr);
         }
         return companyRepository.findAll();
+    }
+
+    @Transactional
+    public void sortDelete(Long id) {
+        companyRepository.softDelete(id);
     }
 }
