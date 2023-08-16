@@ -10,7 +10,4 @@ import java.util.List;
 @Repository
 public interface CompanyRepository extends Base<Company, Long> {
     public List<Company> findByCode(String code);
-
-    @Query("SELECT c FROM Company c WHERE c.searchStr ILIKE %:searchStr%")
-    public List<Company> findBySearchStr(@Param("searchStr") String searchStr);
 }

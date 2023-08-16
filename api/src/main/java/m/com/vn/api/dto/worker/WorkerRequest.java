@@ -1,22 +1,23 @@
-package m.com.vn.api.dto.company;
+package m.com.vn.api.dto.worker;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Getter
-public abstract class CompanyRequest {
+public class WorkerRequest {
     @NotNull
     @NotBlank
     private String code;
+    @NotNull
+    private Long company;
     @NotNull
     @NotBlank
     private String name;
     private String address;
     private String searchStr;
-
+    public void setCompany(Long company) {
+        this.company = company;
+    }
     public void setCode(String code) {
         this.code = code;
     }
@@ -33,7 +34,8 @@ public abstract class CompanyRequest {
         this.searchStr = search_str;
     }
 
-    public CompanyRequest(String code, String name, String address, String searchStr) {
+    public WorkerRequest(Long company, String code, String name, String address, String searchStr) {
+        this.company = company;
         this.code = code;
         this.name = name;
         this.address = address;

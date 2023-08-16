@@ -27,6 +27,7 @@ public class CompanyService extends Base {
         Company company = CompanyMapper.MAPPER.dtoToEntity(newCompany);
         return companyRepository.save(company);
     }
+
     public Company update(Long id, CompanyUpdate newCompany) {
         Optional<Company> company = companyRepository.findById(id);
         if (company.isPresent()) {

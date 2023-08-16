@@ -1,18 +1,28 @@
 package m.com.vn.api.models;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
-import m.com.vn.api.dto.company.CompanyCreate;
 import org.hibernate.annotations.Where;
 
-@Getter
 @Entity
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Where(clause = "active = true")
-public class Company extends Base {
+public class Worker extends Base {
+    @ManyToOne
+    @JoinColumn(name="company_id")
+    private Company company;
     private String code;
     private String name;
     private String address;
     private String searchStr;
-    public Company() {}
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 
     public void setCode(String code) {
         this.code = code;
@@ -26,14 +36,7 @@ public class Company extends Base {
         this.address = address;
     }
 
-    public void setSearchStr(String search_str) {
-        this.searchStr = search_str;
-    }
-
-    public Company(String code, String name, String address, String search_str) {
-        this.code = code;
-        this.name = name;
-        this.address = address;
-        this.searchStr = search_str;
+    public void setSearchStr(String searchStr) {
+        this.searchStr = searchStr;
     }
 }
