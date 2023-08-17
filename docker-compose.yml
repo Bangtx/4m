@@ -19,12 +19,13 @@ services:
       dockerfile: Dockerfile
     volumes:
       - './api:/app/api'
+      - './api/build/libs/api-0.0.1-SNAPSHOT.jar:/app/api/build/libs/api-0.0.1-SNAPSHOT.jar'
     ports:
       - 1001:8080
       - 1003:35729
     depends_on:
       - db
-#    command: ['java', '-jar',  'build/libs/demo2-0.0.1-SNAPSHOT.jar']
+#    command: ['java', '-jar', 'build/libs/api-0.0.1-SNAPSHOT.jar']
     command: ['./gradlew', 'bootRun']
 
   db:

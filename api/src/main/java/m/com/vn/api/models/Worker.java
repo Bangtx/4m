@@ -7,7 +7,6 @@ import lombok.*;
 import org.hibernate.annotations.Where;
 
 @Entity
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Where(clause = "active = true")
@@ -19,6 +18,26 @@ public class Worker extends Base {
     private String name;
     private String address;
     private String searchStr;
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getSearchStr() {
+        return searchStr;
+    }
 
     public void setCompany(Company company) {
         this.company = company;

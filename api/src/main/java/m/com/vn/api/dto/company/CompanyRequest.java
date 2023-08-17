@@ -39,4 +39,6 @@ public abstract class CompanyRequest {
         this.address = address;
         this.searchStr = searchStr;
     }
+
+    public CompanyRequest() {}
 }

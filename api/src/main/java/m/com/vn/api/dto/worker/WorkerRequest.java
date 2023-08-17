@@ -41,4 +41,6 @@ public class WorkerRequest {
         this.address = address;
         this.searchStr = searchStr;
     }
+
+    public WorkerRequest() {}
 }

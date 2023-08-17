@@ -1,6 +1,8 @@
 package m.com.vn.api.controller;
 
+import jakarta.validation.Valid;
 import m.com.vn.api.dto.worker.WorkerCreate;
+import m.com.vn.api.dto.worker.WorkerUpdate;
 import m.com.vn.api.services.company.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,5 +23,10 @@ public class Worker {
     @PostMapping("/")
     public m.com.vn.api.models.Worker createWorker(@RequestBody WorkerCreate worker) {
         return workerService.createWorker(worker);
+    }
+
+    @PutMapping("/{id}")
+    public m.com.vn.api.models.Worker updateWorker(@PathVariable Long id, @Valid @RequestBody WorkerUpdate worker) {
+        return workerService.updateWorker(id, worker);
     }
 }

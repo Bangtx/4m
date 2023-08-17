@@ -4,4 +4,6 @@ public class CompanyUpdate extends CompanyCreate{
     public CompanyUpdate(String code, String name, String address, String search_str) {
         super(code, name, address, search_str);
     }
+
+    public CompanyUpdate() {}
 }

@@ -4,4 +4,7 @@ public class CompanyCreate extends CompanyRequest{
     public CompanyCreate(String code, String name, String address, String search_str) {
         super(code, name, address, search_str);
     }
+
+    public CompanyCreate() {}
+
 }

@@ -4,7 +4,6 @@ import lombok.*;
 import m.com.vn.api.dto.company.CompanyCreate;
 import org.hibernate.annotations.Where;
 
-@Getter
 @Entity
 @Where(clause = "active = true")
 public class Company extends Base {
@@ -13,6 +12,22 @@ public class Company extends Base {
     private String address;
     private String searchStr;
     public Company() {}
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getSearchStr() {
+        return searchStr;
+    }
 
     public void setCode(String code) {
         this.code = code;
